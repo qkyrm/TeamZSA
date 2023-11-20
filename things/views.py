@@ -7,6 +7,7 @@ def ThingsListView(request):
     context = {
         'show_key': show,
 
+
     }
     html_name = 'things/things.html'
     return render(request, html_name, context)
