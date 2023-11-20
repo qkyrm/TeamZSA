@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bloc',
     'things',
+     'bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -111,8 +112,9 @@ STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'MEDIA/'
 
+
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+   os.path.join(BASE_DIR, 'static'),
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
