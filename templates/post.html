@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for i in post_key%}
+{{i.title}}<br>
+{{i.description}}<br>
+
+<img src="{{i.image.url }}" alt=""><br>
+{{i.cost}}<br>
+{{i.create_date}}
+<hr>
+
+{% endfor %}
+</body>
+</html>
