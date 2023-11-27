@@ -19,6 +19,8 @@
       border-radius: 4px;
       transition: 0.2s;
       position: relative;
+      justify-content: space-between;
+       flex-wrap: wrap;
 }
 
 /* При наведении на карточку - меняем цвет тени */
@@ -111,6 +113,14 @@
 
 .cards-container {
   display: flex;
+  justify-content: space-between;
+   flex-wrap: wrap;
+   margin-left: 50px ;
+   margin-right: 50px ;
+  text-align: center;
+
+
+
 }
 
 
@@ -344,27 +354,12 @@ html, body {
   </label>
     <ul class="menu">
       <li><a href="{% url 'page1' %}" >One</a></li>
-        <li><a href="{% url 'page2' %}" ></a>Two</li>
+        <li><a href="{% url 'page2' %}" >Two</a></li>
       <li><a href="{% url 'page3' %}" >Three</a></li>
       <li><a href="{% url 'page4' %}" >Four</a></li>
       <li>Five</li>
     </ul>
   </section>
-
-
-
-
-
-
-<h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-    standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-    type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-    remaining essentially unchanged. It was popularised in t 1960s with the release of Letraset sheets containing
-    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
-    of Lorem Ipsum.</h3>
-<h1>Список</h1>
-
-
 
 <center>
 <div class="cards-container">
@@ -391,8 +386,8 @@ html, body {
     </div>
 
   </div>
-  <br>
-  <br>
+<hr>
+  <hr>
 
 
 </center>
