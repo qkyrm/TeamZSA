@@ -9,6 +9,18 @@
   body{
   background-color:#FAF0E6;
   }
+  .cards {
+  display: grid;
+  /* Автоматически заполняем на всю ширину grid-контейнера */
+  grid-template-columns: repeat(auto-fill, 225px);
+  width: 100%;
+  max-width: 1000px; /* Ширина grid-контейнера */
+  justify-content: center;
+  justify-items: center; /* Размещаем карточку по центру */
+  column-gap: 30px; /* Отступ между колонками */
+  row-gap: 40px; /* Отступ между рядами */
+  margin: 0 auto;
+  }
 .card {
       display: flex;
       width: 225px;
@@ -353,11 +365,11 @@ html, body {
     <div class='menu-button'></div>
   </label>
     <ul class="menu">
-      <li><a href="{% url 'page1' %}" >One</a></li>
-        <li><a href="{% url 'page2' %}" >Two</a></li>
-      <li><a href="{% url 'page3' %}" >Three</a></li>
-      <li><a href="{% url 'page4' %}" >Four</a></li>
-      <li>Five</li>
+      <li><a href="{% url 'page1' %}" >Home</a></li>
+        <li><a href="{% url 'page2' %}" >Sweetshirts</a></li>
+      <li><a href="{% url 'page3' %}" >mugs</a></li>
+      <li><a href="{% url 'page4' %}" >bags</a></li>
+
     </ul>
   </section>
 
@@ -374,7 +386,6 @@ html, body {
     <div class="card__bottom">
       <h2>{{i.title}}</h2>
       <a href="/show_detaill/{{i.id}}" class="card__add" >Подробнее</a>
-
     </div>
   </div>
     <br>
@@ -382,14 +393,10 @@ html, body {
     <br>
   <br>
   {% endfor %}
-
     </div>
-
   </div>
 <hr>
   <hr>
-
-
 </center>
  <br>
   <br>
@@ -410,26 +417,19 @@ html, body {
 <h5 class="widget-title">Quick Links<span></span></h5>
 <ul class="thumbnail-widget">
 <li>
-<div class="thumb-content"><a href="#.">Get Started</a></div>
+  <li>
+<div class="thumb-content"><a href="{% url 'page1' %}">Home</a></div>
 </li>
 <li>
-<div class="thumb-content"><a href="#.">Top Leaders</a></div>
+<div class="thumb-content"><a href="{% url 'page2' %}">Sweetshirts</a></div>
 </li>
 <li>
-<div class="thumb-content"><a href="#.">Success Stories</a></div>
+<div class="thumb-content"><a href="{% url 'page3' %}">Mugs</a></div>
 </li>
 <li>
-<div class="thumb-content"><a href="#.">Event/Tickets</a></div>
+<div class="thumb-content"><a href="{% url 'page4' %}">Bags</a></div>
 </li>
-<li>
-<div class="thumb-content"><a href="#.">News</a></div>
-</li>
-<li>
-<div class="thumb-content"><a href="#.">Lifestyle</a></div>
-</li>
-<li>
-<div class="thumb-content"><a href="#.">About</a></div>
-</li>
+<li> <li><a class="btn" href="#." target="_blank">Register Now</a></li></li>
 </ul>
 </div>
 </div>
@@ -438,7 +438,7 @@ html, body {
 <div class="widget no-box">
 <h5 class="widget-title">Get Started<span></span></h5>
 <p>Get access to your full Training and Marketing Suite.</p>
-<a class="btn" href="#." target="_blank">Register Now</a>
+<a class="btn" href="{% url 'login' %}" target="_blank">login Now</a>
 </div>
 </div>
 
