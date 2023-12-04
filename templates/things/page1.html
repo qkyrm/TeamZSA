@@ -131,11 +131,26 @@
    margin-right: 50px ;
   text-align: center;
 
-
-
 }
 
+       .underline-button {
+            border: none;
+            padding: 10px 20px; /* Отступы вокруг текста */
+            font: 14px 'Arial', sans-serif; /* Размер шрифта и шрифт */
+            color: red;
+            text-decoration: underline;
+            cursor: pointer;
+            background-color: transparent;
+            transition: color 0.3s, background-color 0.3s;
+            border: 2px solid red; /* Толщина границы и цвет границы */
+            display: inline-block; /* Размещение в строчке с блочными свойствами */
+            border-radius: 5px; /* Закругленные углы */
+        }
 
+        .underline-button:hover {
+            color: white; /* Цвет текста при наведении */
+            background-color: #70c05b ; /* Цвет фона при наведении */
+        }
 
 /* Main Footer */
 footer .main-footer{ padding: 20px 0; background: #252525;}
@@ -232,13 +247,17 @@ html, body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center ;
   background-color: #00BAF0;
   background: linear-gradient(to left, #f46b45, #eea849);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #FFF;
   height: 50px;
-  padding: 1em;
+  padding: 10 px;
+}
+
+.logo {
+  margin-right: auto;
 }
 
 .menu {
@@ -311,7 +330,9 @@ html, body {
 @media (max-width: 700px) {
   .menu-button-container {
     display: flex;
+    margin-left: auto;
   }
+
   .menu {
     position: absolute;
     top: 0;
@@ -357,7 +378,7 @@ html, body {
 <body>
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <section class="top-nav">
-    <div>
+    <div class = "logo">
       Logo Here
     </div>
     <input id="menu-toggle" type="checkbox" />
@@ -367,10 +388,14 @@ html, body {
     <ul class="menu">
       <li><a href="{% url 'page1' %}" >Home</a></li>
       <li><a href="{% url 'page2' %}" >Sweetshirts</a></li>
-      <li><a href="{% url 'page3' %}" >mugs</a></li>
-      <li><a href="{% url 'page4' %}" >bags</a></li>
+      <li><a href="{% url 'page3' %}" >Mugs</a></li>
+      <li><a href="{% url 'page4' %}" >Bags</a></li>
+      <li><a href="{% url 'page5' %}" >T-shirts</a></li>
+
     </ul>
   </section>
+
+
 
 <center>
 <div class="cards-container">
@@ -385,7 +410,7 @@ html, body {
     <div class="card__bottom">
       <h2>{{i.title}}</h2>
       <a href="/show_detaill/{{i.id}}" class="card__add" >Подробнее</a>
-
+      <button class="underline-button">Добавить в корзину</button>
     </div>
   </div>
     <br>
@@ -393,14 +418,10 @@ html, body {
     <br>
   <br>
   {% endfor %}
-
     </div>
-
   </div>
 <hr>
   <hr>
-
-
 </center>
  <br>
   <br>
@@ -411,16 +432,17 @@ html, body {
 
 <div class="col-xs-12 col-sm-6 col-md-3">
 <div class="widget subscribe no-box">
-<h5 class="widget-title">COMPANY NAME<span></span></h5>
+<h4 class="widget-title">COMPANY NAME<span></span></h4>
 <p>About the company, little discription will goes here.. </p>
 </div>
 </div>
 
 <div class="col-xs-12 col-sm-6 col-md-3">
 <div class="widget no-box">
-<h5 class="widget-title">Quick Links<span></span></h5>
+<h4 class="widget-title">Quick Links<span></span></h4>
 <ul class="thumbnail-widget">
 <li>
+  <li>
 <div class="thumb-content"><a href="{% url 'page1' %}">Home</a></div>
 </li>
 <li>
@@ -432,38 +454,47 @@ html, body {
 <li>
 <div class="thumb-content"><a href="{% url 'page4' %}">Bags</a></div>
 </li>
-
-
+<li>
+<div class="thumb-content"><a href="{% url 'page5' %}">T-shirts</a></div>
+</li>
+<li> <li><a class="btn" href="#." target="_blank">Register Now</a></li></li>
 </ul>
 </div>
 </div>
 
 <div class="col-xs-12 col-sm-6 col-md-3">
 <div class="widget no-box">
-<h5 class="widget-title">Get Started<span></span></h5>
+<h4 class="widget-title">Get Started<span></span></h4>
 <p>Get access to your full Training and Marketing Suite.</p>
-<a class="btn" href="#." target="_blank">Register Now</a>
+<a class="btn" href="{% url 'login' %}" target="_blank">Зарегистрироваться</a>
 </div>
 </div>
 
 <div class="col-xs-12 col-sm-6 col-md-3">
 
 <div class="widget no-box">
-<h5 class="widget-title">Contact Us<span></span></h5>
+<h4 class="widget-title">Contact Us<span></span></h4>
 
 <p><a href="mailto:info@domain.com" title="glorythemes">info@domain.com</a></p>
 <ul class="social-footer2">
-<li class=""><a title="youtube" target="_blank" href="/"><img alt="youtube" width="30" height="30" src=""></a></li>
-<li class=""><a href="/" target="_blank" title="Facebook"><img alt="Facebook" width="30" height="30" src=""></a></li>
-<li class=""><a href="/" target="_blank" title="Twitter"><img alt="Twitter" width="30" height="30" src=""></a></li>
-<li class=""><a title="instagram" target="_blank" href="/"><img alt="instagram" width="30" height="30" src=""></a></li>
+<li class=""><a title="Youtube" target="_blank" href="/"><img alt="Youtube" width="30" height="30" src="images/youtubelogo.png"></a></li>
+<li class=""><a href="/" target="_blank" title="Facebook"><img alt="Facebook" width="30" height="30" src="images/facebooklogo.png"></a></li>
+<li class=""><a href="/" target="_blank" title="Twitter"><img alt="Twitter" width="30" height="30" src="images/twitterlogo.png"></a></li>
+<li class=""><a title="Telegram" target="_blank" href="/"><img alt="Telegram" width="30" height="30" src="images/telegramlogo.png"></a></li>
+<li class=""><a title="VK" target="_blank" href="/"><img alt="VK" width="30" height="30" src="images/vklogo.png"></a></li>
 </ul>
+
+  <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+    <a class="btn btn-primary me-md-2" href="form.html">Заполнить форму</a>
+</div>
+
 </div>
 </div>
 
 </div>
 </div>
 </div>
+
 
 <div class="footer-copyright">
 <div class="container">

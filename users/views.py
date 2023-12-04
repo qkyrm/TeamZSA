@@ -6,11 +6,15 @@ from django.shortcuts import render
 class Register(View):
     template_name = 'registration/register.html'
 
+class Form (View):
+    template_name= 'fill the form / form.html '
+
     def get(self, request):
         content = {
             'form': UserCreationForm()
         }
         return render(request, self.template_name, content)
+
     def post(self, request):
         form = UserCreationForm(request.POST)
 

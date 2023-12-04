@@ -25,3 +25,6 @@ def page3(request):
         return render(request,"things/page3.html", {'navbar':'page3'})
 def page4(request):
         return render(request,"things/page4.html", {'navbar':'page4'})
+def page5(request):
+        return render(request,"things/page5.html", {'navbar':"page5"})
+

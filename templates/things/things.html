@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <title>Products</title>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -131,11 +132,26 @@
    margin-right: 50px ;
   text-align: center;
 
-
-
 }
 
+       .underline-button {
+            border: none;
+            padding: 10px 20px; /* Отступы вокруг текста */
+            font: 14px 'Arial', sans-serif; /* Размер шрифта и шрифт */
+            color: red;
+            text-decoration: underline;
+            cursor: pointer;
+            background-color: transparent;
+            transition: color 0.3s, background-color 0.3s;
+            border: 2px solid red; /* Толщина границы и цвет границы */
+            display: inline-block; /* Размещение в строчке с блочными свойствами */
+            border-radius: 5px; /* Закругленные углы */
+        }
 
+        .underline-button:hover {
+            color: white; /* Цвет текста при наведении */
+            background-color: #70c05b ; /* Цвет фона при наведении */
+        }
 
 /* Main Footer */
 footer .main-footer{ padding: 20px 0; background: #252525;}
@@ -210,6 +226,18 @@ box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 -o-transition: all 250ms ease-in-out 0s;
 transition: all 250ms ease-in-out 0s;
 
+.carousel-item img {
+        max-width: 100%; /* Максимальная ширина изображения будет 100% от родительского контейнера */
+        height: auto;    /* Автоматическая высота, чтобы сохранить соотношение сторон */
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+        color: #000; /* Черный цвет для стрелок */
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: #000; /* Черный цвет для стрелок */
+    }
 }
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 h2 {
@@ -232,13 +260,17 @@ html, body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center ;
   background-color: #00BAF0;
   background: linear-gradient(to left, #f46b45, #eea849);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #FFF;
   height: 50px;
-  padding: 1em;
+  padding: 10 px;
+}
+
+.logo {
+  margin-right: auto;
 }
 
 .menu {
@@ -311,7 +343,9 @@ html, body {
 @media (max-width: 700px) {
   .menu-button-container {
     display: flex;
+    margin-left: auto;
   }
+
   .menu {
     position: absolute;
     top: 0;
@@ -352,12 +386,11 @@ html, body {
   }
 }
   </style>
-
 </head>
 <body>
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <section class="top-nav">
-    <div>
+    <div class = "logo">
       Logo Here
     </div>
     <input id="menu-toggle" type="checkbox" />
@@ -366,12 +399,56 @@ html, body {
   </label>
     <ul class="menu">
       <li><a href="{% url 'page1' %}" >Home</a></li>
-        <li><a href="{% url 'page2' %}" >Sweetshirts</a></li>
-      <li><a href="{% url 'page3' %}" >mugs</a></li>
-      <li><a href="{% url 'page4' %}" >bags</a></li>
+      <li><a href="{% url 'page2' %}" >Sweetshirts</a></li>
+      <li><a href="{% url 'page3' %}" >Mugs</a></li>
+      <li><a href="{% url 'page4' %}" >Bags</a></li>
+      <li><a href="{% url 'page5' %}" >T-shirts</a></li>
 
     </ul>
   </section>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active text-center">
+            <img src="https://shop.itproger.com/img/catalog/tshirt-itshnik.jpg" alt="T-shirts">
+            <div class="carousel-caption">
+                <h2>T-shirts</h2>
+            </div>
+        </div>
+        <div class="carousel-item text-center">
+            <img src="https://shop.itproger.com/img/catalog/hoodie-php.jpg" alt="Hoodies">
+            <div class="carousel-caption">
+                <h2>Hoodies</h2>
+            </div>
+        </div>
+        <div class="carousel-item text-center">
+            <img src="https://shop.itproger.com/img/catalog/bag-hard-coder.jpg" alt="Bags">
+            <div class="carousel-caption">
+                <h2>Bags</h2>
+            </div>
+        </div>
+        <div class="carousel-item text-center">
+            <img src="https://shop.itproger.com/img/catalog/mug-hard-coder.jpg" alt="Mugs">
+            <div class="carousel-caption">
+                <h2>Mugs</h2>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
 
 <center>
 <div class="cards-container">
@@ -386,6 +463,7 @@ html, body {
     <div class="card__bottom">
       <h2>{{i.title}}</h2>
       <a href="/show_detaill/{{i.id}}" class="card__add" >Подробнее</a>
+      <button class="underline-button">Добавить в корзину</button>
     </div>
   </div>
     <br>
@@ -407,14 +485,14 @@ html, body {
 
 <div class="col-xs-12 col-sm-6 col-md-3">
 <div class="widget subscribe no-box">
-<h5 class="widget-title">COMPANY NAME<span></span></h5>
+<h4 class="widget-title">COMPANY NAME<span></span></h4>
 <p>About the company, little discription will goes here.. </p>
 </div>
 </div>
 
 <div class="col-xs-12 col-sm-6 col-md-3">
 <div class="widget no-box">
-<h5 class="widget-title">Quick Links<span></span></h5>
+<h4 class="widget-title">Quick Links<span></span></h4>
 <ul class="thumbnail-widget">
 <li>
   <li>
@@ -429,6 +507,9 @@ html, body {
 <li>
 <div class="thumb-content"><a href="{% url 'page4' %}">Bags</a></div>
 </li>
+<li>
+<div class="thumb-content"><a href="{% url 'page5' %}">T-shirts</a></div>
+</li>
 <li> <li><a class="btn" href="#." target="_blank">Register Now</a></li></li>
 </ul>
 </div>
@@ -436,30 +517,35 @@ html, body {
 
 <div class="col-xs-12 col-sm-6 col-md-3">
 <div class="widget no-box">
-<h5 class="widget-title">Get Started<span></span></h5>
+<h4 class="widget-title">Get Started<span></span></h4>
 <p>Get access to your full Training and Marketing Suite.</p>
-<a class="btn" href="{% url 'login' %}" target="_blank">login Now</a>
+<a class="btn" href="{% url 'login' %}" target="_blank">Зарегистрироваться</a>
 </div>
 </div>
 
 <div class="col-xs-12 col-sm-6 col-md-3">
 
 <div class="widget no-box">
-<h5 class="widget-title">Contact Us<span></span></h5>
+<h4 class="widget-title">Contact Us<span></span></h4>
 
 <p><a href="mailto:info@domain.com" title="glorythemes">info@domain.com</a></p>
 <ul class="social-footer2">
-<li class=""><a title="youtube" target="_blank" href="/"><img alt="youtube" width="30" height="30" src=""></a></li>
-<li class=""><a href="/" target="_blank" title="Facebook"><img alt="Facebook" width="30" height="30" src=""></a></li>
-<li class=""><a href="/" target="_blank" title="Twitter"><img alt="Twitter" width="30" height="30" src=""></a></li>
-<li class=""><a title="instagram" target="_blank" href="/"><img alt="instagram" width="30" height="30" src=""></a></li>
+<li class=""><a title="Youtube" target="_blank" href="/"><img alt="Youtube" width="30" height="30" src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"></a></li>
+<li class=""><a href="/" target="_blank" title="Facebook"><img alt="Facebook" width="30" height="30" src="https://www.facebook.com/images/fb_icon_325x325.png"></a></li>
+<li class=""><a href="/" target="_blank" title="Twitter"><img alt="Twitter" width="30" height="30" src="https://cdn-icons-png.flaticon.com/512/145/145812.png"></a></li>
+<li class=""><a title="Telegram" target="_blank" href="/"><img alt="Telegram" width="30" height="30" src="https://w7.pngwing.com/pngs/224/500/png-transparent-telegram-logo-computer-icons-others-miscellaneous-blue-angle.png"></a></li>
+<li class=""><a title="VK" target="_blank" href="/"><img alt="VK" width="30" height="30" src="https://cdn-icons-png.flaticon.com/512/5968/5968835.png"></a></li>
 </ul>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+    <a class="btn btn-primary me-md-2" href="form.html">Заполнить форму</a>
+</div>
 </div>
 </div>
 
 </div>
 </div>
 </div>
+
 
 <div class="footer-copyright">
 <div class="container">
@@ -469,5 +555,8 @@ html, body {
 </div>
 </div>
 </footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
