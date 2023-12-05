@@ -6,159 +6,22 @@
     <title>Products</title>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat">
+
+
+
+
   <style>
-  body{
-  background-color:#FAF0E6;
-  }
-  .cards {
-  display: grid;
-  /* Автоматически заполняем на всю ширину grid-контейнера */
-  grid-template-columns: repeat(auto-fill, 225px);
-  width: 100%;
-  max-width: 1000px; /* Ширина grid-контейнера */
-  justify-content: center;
-  justify-items: center; /* Размещаем карточку по центру */
-  column-gap: 30px; /* Отступ между колонками */
-  row-gap: 40px; /* Отступ между рядами */
-  margin: 0 auto;
-  }
-.card {
-      display: flex;
-      width: 225px;
-      min-height: 350px;
-      box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
-      display: flex;
-      flex-direction: column; /* Размещаем элементы в колонку */
-      border-radius: 4px;
-      transition: 0.2s;
-      position: relative;
-      justify-content: space-between;
-       flex-wrap: wrap;
-}
-
-/* При наведении на карточку - меняем цвет тени */
-.card:hover {
-  box-shadow: 4px 8px 16px rgba(255, 102, 51, 0.2);
-}
-
-.card__top {
-  flex: 0 0 220px; /* Задаем высоту 220px, запрещаем расширение и сужение по высоте */
-  position: relative;
-  overflow: hidden; /* Скрываем, что выходит за пределы */
-}
-
-/* Контейнер для картинки */
-.card__image {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.card__image > img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* Встраиваем картинку в контейнер card__image */
-  transition: 0.2s;
-}
-
-/* При наведении - увеличиваем картинку */
-.card__image:hover > img {
-  transform: scale(1.1);
-}
-
-/* Размещаем скидку на товар относительно изображения */
-.card__label {
-  padding: 4px 8px;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  background: #ff6633;
-  border-radius: 4px;
-  font-weight: 400;
-  font-size: 16px;
-  color: #fff;
-}
-
-.card__bottom {
-  display: flex;
-  flex-direction: column;
-  flex: 1 0 auto; /* Занимаем всю оставшуюся высоту карточки */
-  padding: 10px;
-}
-
-
-.card__title {
-  display: block;
-  margin-bottom: 10px;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 150%;
-  color: #414141;
-}
-
-.card__title:hover {
-  color: #ff6633;
-}
-
-.card__add {
-  display: block;
-  width: 100%;
-  font-weight: 400;
-  font-size: 17px;
-  color: #70c05b;
-  padding: 10px;
-  text-align: center;
-  border: 1px solid #70c05b;
-  border-radius: 4px;
-  cursor: pointer; /* Меняем курсор при наведении */
-  transition: 0.2s;
-  margin-top: auto; /* Прижимаем кнопку к низу карточки */
-}
-
-.card__add:hover {
-  border: 1px solid #ff6633;
-  background-color: #ff6633;
-  color: #fff;
-}
-
-.cards-container {
-  display: flex;
-  justify-content: space-between;
-   flex-wrap: wrap;
-   margin-left: 50px ;
-   margin-right: 50px ;
-  text-align: center;
-
-}
-
-       .underline-button {
-            border: none;
-            padding: 10px 20px; /* Отступы вокруг текста */
-            font: 14px 'Arial', sans-serif; /* Размер шрифта и шрифт */
-            color: red;
-            text-decoration: underline;
-            cursor: pointer;
-            background-color: transparent;
-            transition: color 0.3s, background-color 0.3s;
-            border: 2px solid red; /* Толщина границы и цвет границы */
-            display: inline-block; /* Размещение в строчке с блочными свойствами */
-            border-radius: 5px; /* Закругленные углы */
-        }
-
-        .underline-button:hover {
-            color: white; /* Цвет текста при наведении */
-            background-color: #70c05b ; /* Цвет фона при наведении */
-        }
 
 /* Main Footer */
-footer .main-footer{ padding: 20px 0; background: #252525;}
+footer .main-footer{ padding: 20px 0; background: #000000 ;}
 footer ul{ padding-left: 0; list-style: none;}
+body{
+  background-color: #228B22  ;
+  }
 
 /* Copy Right Footer */
-.footer-copyright { background: #222; padding: 5px 0;}
+.footer-copyright { background: #000000 ; padding: 5px 0;}
 .footer-copyright .logo { display: inherit;}
 .footer-copyright nav { float: right; margin-top: 5px;}
 .footer-copyright nav ul { list-style: none; margin: 0; padding: 0;}
@@ -168,15 +31,15 @@ footer ul{ padding-left: 0; list-style: none;}
 .footer-copyright p { color: #969696; margin: 2px 0 0;}
 
 /* Footer Top */
-.footer-top{ background: #252525; padding-bottom: 30px; margin-bottom: 30px; border-bottom: 3px solid #222;}
+.footer-top{ background:#000000 ; padding-bottom: 30px; margin-bottom: 30px; border-bottom: 3px solid #222;}
 
 /* Footer transparent */
 footer.transparent .footer-top, footer.transparent .main-footer{ background: transparent;}
 footer.transparent .footer-copyright{ background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3) ;}
 
 /* Footer light */
-footer.light .footer-top{ background: #f9f9f9;}
-footer.light .main-footer{ background: #f9f9f9;}
+footer.light .footer-top{ background: pink;}
+footer.light .main-footer{ background:pink;}
 footer.light .footer-copyright{ background: none repeat scroll 0 0 rgba(255, 255, 255, 0.3) ;}
 
 /* Footer 4 */
@@ -187,15 +50,14 @@ footer.light .footer-copyright{ background: none repeat scroll 0 0 rgba(255, 255
 ====================== */
 .widget{ padding: 20px; margin-bottom: 40px;}
 .widget.widget-last{ margin-bottom: 0px;}
-.widget.no-box{ padding: 0; background-color: transparent; margin-bottom: 40px;
-  box-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; -ms-box-shadow: none; -o-box-shadow: none;}
+.widget.no-box{ padding: 0; background-color: transparent; margin-bottom: 40px; }
+box-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; -ms-box-shadow: none; -o-box-shadow: none;}
 .widget.subscribe p{ margin-bottom: 18px;}
-.widget li a{ color: #ff8d1e;}
-.widget li a:hover{ color: #4b92dc;}
+.widget li a{ color: white ;}
+.widget li a:hover{ color: #228B22 ;}
 .widget-title {margin-bottom: 20px;}
-.widget-title span {background: #839FAD none repeat scroll 0 0;display: block; height: 1px;margin-top: 25px;position: relative;width: 20%;}
 .widget-title span::after {background: inherit;content: "";height: inherit; position: absolute;top: -4px;width: 50%;}
-.widget-title.text-center span,.widget-title.text-center span::after {margin-left: auto;margin-right:auto;left: 0;right: 0;}
+.widget-title.text-center span,.widget-title.text-center span::after {margin-left: auto; margin-right:auto;left: 0;right: 0;}
 .widget .badge{ float: right; background: #7f7f7f;}
 
 .typo-light h1,
@@ -207,14 +69,14 @@ footer.light .footer-copyright{ background: none repeat scroll 0 0 rgba(255, 255
 .typo-light p,
 .typo-light div,
 .typo-light span,
-.typo-light small{ color: #fff;}
+.typo-light small { color: #fff;}
 
 ul.social-footer2 { margin: 0;padding: 0; width: auto;}
 ul.social-footer2 li {display: inline-block;padding: 0;}
-ul.social-footer2 li a:hover {background-color:#ff8d1e;}
+ul.social-footer2 li a:hover {background-color: #006400 ;}
 ul.social-footer2 li a {display: block; height:30px;width: 30px;text-align: center;}
-.btn{background-color: #ff8d1e; color:#fff;}
-.btn:hover, .btn:focus, .btn.active {background: #4b92dc;color: #fff;
+.btn{background-color: #006400 ; color:#fff;}
+.btn:hover, .btn:focus, .btn.active {background: black ;color: #fff;}
 -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 -moz-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 -ms-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
@@ -226,20 +88,59 @@ box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 -o-transition: all 250ms ease-in-out 0s;
 transition: all 250ms ease-in-out 0s;
 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+.background-image {
+    background-image: url('https://i.pinimg.com/564x/42/91/39/42913955966290d8c9e6de64178cbc7c.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh; /* Это установит высоту фоновой фотографии в 50% высоты экрана */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+/* Дополнительные стили для вашего контента, если необходимо */
+h1 {
+    font-size: 2em;
+    text-align: center;
+}
+
+.shop-info {
+    position: absolute;
+    bottom: 400px;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family:"Montserrat"
+}
+.shop-info h1,
+.shop-info p {
+    color: #ffffff; /* Устанавливаем цвет текста на белый */
+}
+
 .carousel-item img {
         max-width: 100%; /* Максимальная ширина изображения будет 100% от родительского контейнера */
         height: auto;    /* Автоматическая высота, чтобы сохранить соотношение сторон */
     }
     .carousel-control-prev,
     .carousel-control-next {
-        color: #000; /* Черный цвет для стрелок */
+        color: black ; /* Черный цвет для стрелок */
     }
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
-        background-color: #000; /* Черный цвет для стрелок */
+        background-color: black; /* Черный цвет для стрелок */
     }
-}
-@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
 h2 {
   vertical-align: center;
   text-align: center;
@@ -252,7 +153,7 @@ html, body {
 }
 
 * {
-  font-family: "Raleway";
+  font-family: "Montserrat";
   box-sizing: border-box;
 }
 
@@ -261,10 +162,10 @@ html, body {
   flex-direction: row;
   align-items: center;
   justify-content: center ;
-  background-color: #00BAF0;
-  background: linear-gradient(to left, #f46b45, #eea849);
+  background-color:white;
+  background: linear-gradient(to left, #000000, #333333 );
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: #FFF;
+  color: white;
   height: 50px;
   padding: 10 px;
 }
@@ -273,15 +174,32 @@ html, body {
   margin-right: auto;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px; /* Adjust the width as needed */
+    height: auto;
+    margin-right: 10px; /* Adjust the margin as needed */
+}
+
+.logo h1 {
+    font-size: 24px; /* Adjust the font size as needed */
+    margin: 0;
+    color: #ffffff;
+}
+
 .menu {
   display: flex;
   flex-direction: row;
   list-style-type: none;
   margin: 0;
   padding: 0;
-   text-decoration: none;
-   color:#fff;
-   font-size: 30px;
+  text-decoration: none;
+  color:#fff ;
+  font-size: 30px;
 }
 
 .menu > li {
@@ -308,7 +226,7 @@ html, body {
 .menu-button::before,
 .menu-button::after {
   display: block;
-  background-color: #fff;
+  background-color: black;
   position: absolute;
   height: 4px;
   width: 30px;
@@ -355,8 +273,8 @@ html, body {
     width: 100%;
     justify-content: center;
     align-items: center;
-     text-decoration: none;
-     font-size: 40px;
+    text-decoration: none;
+    font-size: 40px;
   }
   #menu-toggle ~ .menu li {
     height: 0;
@@ -388,17 +306,19 @@ html, body {
   </style>
 </head>
 <body>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <section class="top-nav">
     <div class = "logo">
-      Logo Here
+        <img src="https://shop.itproger.com/img/logo.svg" alt="Your Shop Logo">
+        <h2> IT-Wear shop </h2>
     </div>
     <input id="menu-toggle" type="checkbox" />
     <label class='menu-button-container' for="menu-toggle">
     <div class='menu-button'></div>
   </label>
     <ul class="menu">
-      <li><a href="{% url 'page1' %}" >Home</a></li>
+      <li><a href="{% url 'page1' %}" >All</a></li>
       <li><a href="{% url 'page2' %}" >Sweetshirts</a></li>
       <li><a href="{% url 'page3' %}" >Mugs</a></li>
       <li><a href="{% url 'page4' %}" >Bags</a></li>
@@ -406,6 +326,17 @@ html, body {
 
     </ul>
   </section>
+
+<div class="background-image">
+        <!-- Ваш контент для главной страницы здесь -->
+    <h1>Добро пожаловать в интернет-магазин IT-Wear shop!</h1>
+</div>
+<div class="shop-info">
+        <p>Вы сможете найти в нашем магазине любую одежду на ваш цвет и вкус.</p>
+        <button id="lookForAll">Смотреть все товары</button>
+    </div>
+
+
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -450,34 +381,7 @@ html, body {
     </a>
 </div>
 
-<center>
-<div class="cards-container">
-  {% for i in show_key %}
-  <div class="card">
-    <div class="card__top">
-      <a href="#" class="card__image">
-        <img src="{{i.image.url}}"><br>
-      </a>
-      <div class="card__label">-10%</div>
-    </div>
-    <div class="card__bottom">
-      <h2>{{i.title}}</h2>
-      <a href="/show_detaill/{{i.id}}" class="card__add" >Подробнее</a>
-      <button class="underline-button">Добавить в корзину</button>
-    </div>
-  </div>
-    <br>
-  <br>
-    <br>
-  <br>
-  {% endfor %}
-    </div>
-  </div>
-<hr>
-  <hr>
-</center>
- <br>
-  <br>
+
 <footer id="footer" class="footer-1">
 <div class="main-footer widgets-dark typo-light">
 <div class="containerr">
@@ -486,17 +390,17 @@ html, body {
 <div class="col-xs-12 col-sm-6 col-md-3">
 <div class="widget subscribe no-box">
 <h4 class="widget-title">COMPANY NAME<span></span></h4>
-<p>About the company, little discription will goes here.. </p>
+    <p> About the company, little discription will goes here..</p>
 </div>
 </div>
 
 <div class="col-xs-12 col-sm-6 col-md-3">
 <div class="widget no-box">
-<h4 class="widget-title">Quick Links<span></span></h4>
+<h4 class="widget-title">QUICK LINKS<span></span></h4>
 <ul class="thumbnail-widget">
 <li>
   <li>
-<div class="thumb-content"><a href="{% url 'page1' %}">Home</a></div>
+    <div class="thumb-content"><a href="{% url 'page1' %}"> All </a></div>
 </li>
 <li>
 <div class="thumb-content"><a href="{% url 'page2' %}">Sweetshirts</a></div>
@@ -517,7 +421,7 @@ html, body {
 
 <div class="col-xs-12 col-sm-6 col-md-3">
 <div class="widget no-box">
-<h4 class="widget-title">Get Started<span></span></h4>
+<h4 class="widget-title">GET STARTED <span></span></h4>
 <p>Get access to your full Training and Marketing Suite.</p>
 <a class="btn" href="{% url 'login' %}" target="_blank">Зарегистрироваться</a>
 </div>
@@ -526,9 +430,9 @@ html, body {
 <div class="col-xs-12 col-sm-6 col-md-3">
 
 <div class="widget no-box">
-<h4 class="widget-title">Contact Us<span></span></h4>
+<h4 class="widget-title">CONTACT US<span></span></h4>
 
-<p><a href="mailto:info@domain.com" title="glorythemes">info@domain.com</a></p>
+    <p><a href="mailto:info@domain.com" title="glorythemes">info@domain.com</a></p>
 <ul class="social-footer2">
 <li class=""><a title="Youtube" target="_blank" href="/"><img alt="Youtube" width="30" height="30" src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"></a></li>
 <li class=""><a href="/" target="_blank" title="Facebook"><img alt="Facebook" width="30" height="30" src="https://www.facebook.com/images/fb_icon_325x325.png"></a></li>

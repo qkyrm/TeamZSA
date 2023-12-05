@@ -16,3 +16,16 @@ class Things(models.Model):
         return self.title
 
 
+# models.py
+class All(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    cost = models.PositiveIntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    image_file = models.ImageField(upload_to='images/')
+
+    def __str__(self):
+        return self.title
+
+
+

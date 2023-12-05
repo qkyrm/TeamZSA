@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .models import Post  # Ensure correct import
+from .models import Post
+
 
 def post_view(request):
     # Retrieve all Post objects
@@ -7,3 +8,4 @@ def post_view(request):
 
     # Pass the queryset to the template
     return render(request, "post.html", {"post_key": post_values})
+
