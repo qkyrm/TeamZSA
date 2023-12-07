@@ -3,10 +3,29 @@
 
 {% block css %}
 
-
 {% endblock %}
 
 
-{% block content %}
 
+
+{% block content %}
+<div class="cards-container">
+    {% for mug in mugs %}
+        <div class="card">
+            <div class="card__top">
+                <a href="#" class="card__image">
+                    <img src="{{ mug.image.url }}" alt="{{ mug.title }}">
+                </a>
+                <div class="card__label">-10%</div>
+            </div>
+            <div class="card__bottom">
+                <h2>{{ mug.title }}</h2>
+                <a href="/show_detail/{{ mug.id }}" class="card__add">Подробнее</a>
+                <button class="underline-button">Добавить в корзину</button>
+            </div>
+        </div>
+    {% endfor %}
+
+    <br>
+</div>
 {% endblock %}

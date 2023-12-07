@@ -9,7 +9,7 @@ urlpatterns = [
     path('home', views.home, name="home"),
     path('page1', views.page1, name="page1"),
     path('page2', views.SweatListView, name="page2"),
-    path('page3', views.page3, name="page3"),
-    path('page4', views.page4, name="page4"),
-    path("page5", views.page5, name="page5"),
+    path('page3', views.MugListView, name="page3"),
+    path('page4', views.BagListView, name="page4"),
+    path("page5", views.TshirtListView, name="page5"),
 ]
