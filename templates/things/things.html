@@ -14,11 +14,17 @@
   <style>
 
 /* Main Footer */
-footer .main-footer{ padding: 20px 0; background: #000000 ;}
+footer .main-footer{ padding: 20px 0; background: linear-gradient(to right, black , #6a5acd ) ;}
 footer ul{ padding-left: 0; list-style: none;}
-body{
-  background-color: #228B22  ;
-  }
+
+body {
+    background-color: black ;
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+
+
+}
 
 /* Copy Right Footer */
 .footer-copyright { background: #000000 ; padding: 5px 0;}
@@ -51,7 +57,7 @@ footer.light .footer-copyright{ background: none repeat scroll 0 0 rgba(255, 255
 .widget{ padding: 20px; margin-bottom: 40px;}
 .widget.widget-last{ margin-bottom: 0px;}
 .widget.no-box{ padding: 0; background-color: transparent; margin-bottom: 40px; }
-box-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; -ms-box-shadow: none; -o-box-shadow: none;}
+box-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; -ms-box-shadow: none; -o-box-shadow: none;
 .widget.subscribe p{ margin-bottom: 18px;}
 .widget li a{ color: white ;}
 .widget li a:hover{ color: #228B22 ;}
@@ -73,9 +79,9 @@ box-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; -ms-box-shado
 
 ul.social-footer2 { margin: 0;padding: 0; width: auto;}
 ul.social-footer2 li {display: inline-block;padding: 0;}
-ul.social-footer2 li a:hover {background-color: #006400 ;}
+ul.social-footer2 li a:hover {background-color: #191c1f ;}
 ul.social-footer2 li a {display: block; height:30px;width: 30px;text-align: center;}
-.btn{background-color: #006400 ; color:#fff;}
+.btn{background-color: #191c1f ; color:#fff;}
 .btn:hover, .btn:focus, .btn.active {background: black ;color: #fff;}
 -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 -moz-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
@@ -97,7 +103,7 @@ body {
 }
 
 .background-image {
-    background-image: url('https://i.pinimg.com/564x/42/91/39/42913955966290d8c9e6de64178cbc7c.jpg');
+    background-image: url('https://i.pinimg.com/originals/35/b9/f0/35b9f0ad19b674fb4f3d332cc8f6e035.gif');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -107,6 +113,7 @@ body {
     justify-content: center;
     color: #ffffff;
 }
+
 
 /* Дополнительные стили для вашего контента, если необходимо */
 h1 {
@@ -140,6 +147,7 @@ h1 {
         background-color: black; /* Черный цвет для стрелок */
     }
 
+
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 h2 {
   vertical-align: center;
@@ -163,7 +171,7 @@ html, body {
   align-items: center;
   justify-content: center ;
   background-color:white;
-  background: linear-gradient(to left, #000000, #333333 );
+  background: linear-gradient(to left, #000000, #6a5acd );
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
   height: 50px;
@@ -189,6 +197,11 @@ html, body {
     font-size: 24px; /* Adjust the font size as needed */
     margin: 0;
     color: #ffffff;
+}
+
+.menu-container {
+  display: flex;
+  justify-content: center;
 }
 
 .menu {
@@ -264,7 +277,9 @@ html, body {
     margin-left: auto;
   }
 
+
   .menu {
+    list-style-type: none;
     position: absolute;
     top: 0;
     margin-top: 50px;
@@ -292,7 +307,7 @@ html, body {
   .menu > li {
     display: flex;
     justify-content: center;
-    margin: 0;
+    margin: 0 15px;
     padding: 0.5em 0;
     width: 100%;
     color: white;
@@ -303,29 +318,31 @@ html, body {
     border-bottom: 1px solid #444;
   }
 }
+
   </style>
 </head>
 <body>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
   <section class="top-nav">
     <div class = "logo">
-        <img src="https://shop.itproger.com/img/logo.svg" alt="Your Shop Logo">
+        <img src="https://i.pinimg.com/564x/d8/3c/6a/d83c6a5b81415184269297928e14224b.jpg" alt="Your Shop Logo">
         <h2> IT-Wear shop </h2>
     </div>
     <input id="menu-toggle" type="checkbox" />
     <label class='menu-button-container' for="menu-toggle">
     <div class='menu-button'></div>
   </label>
+ <div class="menu-container">
     <ul class="menu">
       <li><a href="{% url 'page1' %}" >All</a></li>
       <li><a href="{% url 'page2' %}" >Sweetshirts</a></li>
       <li><a href="{% url 'page3' %}" >Mugs</a></li>
       <li><a href="{% url 'page4' %}" >Bags</a></li>
       <li><a href="{% url 'page5' %}" >T-shirts</a></li>
-
     </ul>
+ </div>
   </section>
+
 
 <div class="background-image">
         <!-- Ваш контент для главной страницы здесь -->
@@ -336,7 +353,7 @@ html, body {
         <button id="lookForAll">Смотреть все товары</button>
     </div>
 
-
+<br>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -371,6 +388,7 @@ html, body {
             </div>
         </div>
     </div>
+    <br>
     <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
