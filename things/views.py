@@ -1,5 +1,5 @@
+from django.http import HttpResponseServerError
 from django.shortcuts import render, get_object_or_404
-
 from .models import Things
 from . import models
 def ThingsListView(request):
@@ -20,8 +20,14 @@ def home(request):
     return render (request, "things/home.html", {'navbar':'home'})
 def page1(request):
         return render(request,"things/page1.html", {'navbar':'page1'})
-def page2(request):
-        return render(request,"things/page2.html", {'navbar':'page2'})
+def SweatListView(request):
+        shirts = models.Things.objects.filter(type='shirt')
+
+        context = {'shirts': shirts}
+        html_name = 'things/page2.html'
+        return render(request, html_name, context)
+
+
 def page3(request):
         return render(request,"things/page3.html", {'navbar':'page3'})
 def page4(request):
