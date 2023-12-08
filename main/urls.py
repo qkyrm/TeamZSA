@@ -7,7 +7,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('bloc', include("bloc.urls")),
     path('', include("things.urls")),
-    path('home/', TemplateView.as_view(template_name='home.html'), name='home'),
     path('users/', include('users.urls')),
     path('sweatshirts/', include("sweatshirts.urls")),
 

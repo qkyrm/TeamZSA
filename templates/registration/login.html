@@ -1,16 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<style>
+        body {
+            background-color: #fff; /* Белый фон */
+            font-family: 'Montserrat', sans-serif; /* Шрифт Montserrat */
+        }
+
+        h1 {
+            color:#fff;
+            font-family: 'Montserrat', sans-serif ;
+        }
+
+        form {
+            color:#fff;
+            border-radius: 7px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .content {
+            flex: 1; /* Занимает оставшееся пространство между шапкой и футером */
+        }
+
+        button {
+            background-color: #6a5acd ; /* Цвет фона кнопок */
+            color: #fff; /* Цвет текста кнопок */
+            border-radius: 7px; /* Округленные углы кнопок */
+            padding: 10px 15px; /* Поля вокруг текста кнопок */
+            margin-top: 10px; /* Отступ сверху кнопок */
+        }
+
+        button:hover {
+            background-color: #2D2D67 ;
+            color: white;
+            text-decoration: underline;
+        }
+
+    </style>
+{% endblock %}
+
+{% block content %}
 <h1>Авторизация</h1>
 <form method="POST" enctype="multipart/form-data">
     <form action="{% url 'users:login' %}" method="post">
     {% csrf_token %}
     {{form.as_p}}
     <button type="submit">Войти</button>
+    </form>
 </form>
-</body>
-</html>
+
+{% endblock %}

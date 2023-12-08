@@ -33,3 +33,6 @@ class UserListView(ListView):
     def get_queryset(self):
         return self.model.objects.all()
 
+def form_view(request):
+    return render(request, 'form.html')
+
