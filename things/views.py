@@ -40,17 +40,6 @@ def BagListView(request):
         html_name = 'things/page4.html'
         return render(request, html_name, context)
 
-
-
-# def page3(request):
-#         return render(request,"things/page3.html", {'navbar':'page3'})
-def BagListView(request):
-        bags = models.Things.objects.filter(type='bag')
-
-        context = {'bags': bags}
-        html_name = 'things/page4.html'
-        return render(request, html_name, context)
-
 def TshirtListView(request):
         tshirts = models.Things.objects.filter(type='tshirt')
 
