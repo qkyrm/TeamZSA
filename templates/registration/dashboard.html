@@ -1,13 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<style>
+{% extends 'base.html' %}
+{% load static %}
 
-</style>
-<body>
+{% block css %}
 
-</body>
-</html>
+{% endblock %}
+
+<div id="header" >
+    <span class="logo" >Django Authentication</span>
+    {% if request.user.is_authenticated %}
+    <ul class="menuu" >
+        <li {% if section =="dashboard" %} class="selected" {% endif %} >
+            <a href="{% url 'dashboard' %}" >My dashboard</a>
+        </li>
+    </ul>
+    {% endif %}
+</div>
+<div id="content" >
+    {% block content %}
+    {% endblock %}
+</div>
+
+
+
+{% endblock %}
+
