@@ -2,6 +2,8 @@ from django.http import HttpResponseServerError
 from django.shortcuts import render, get_object_or_404
 from .models import Things
 from . import models
+
+
 def ThingsListView(request):
     show = models.Things.objects.all()
     context = {
@@ -16,8 +18,6 @@ def ThingsDeteilView(request, id):
         show_id_key = get_object_or_404(Things, id=id)
         return render(request, template_name='things/things_detail.html', context={"show_id_key":show_id_key})
 
-def home(request):
-    return render (request, "things/home.html", {'navbar':'home'})
 def page1(request):
         return render(request,"things/page1.html", {'navbar':'page1'})
 def SweatListView(request):

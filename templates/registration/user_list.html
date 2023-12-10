@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>UserLIst</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
 <div>
   <ul>
     {% for i in object_list %}
@@ -18,5 +19,4 @@
         <button type="submit">Выйти</button>
     </form>
 </div>
-</body>
-</html>
+{% endblock %}
