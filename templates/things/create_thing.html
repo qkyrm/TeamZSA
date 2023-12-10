@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Create Thing</h1>
+
+  <form method="post" action="{% url 'create_thing' %}" class="mt-3" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a href="{% url 'things_list' %}" class="btn btn-secondary">Cancel</a>
+  </form>
+{% endblock %}

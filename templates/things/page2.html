@@ -5,9 +5,6 @@
 
 {% endblock %}
 
-
-
-
 {% block content %}
 <div class="cards-container">
     {% for shirt in shirts %}
@@ -20,12 +17,14 @@
             </div>
             <div class="card__bottom">
                 <h2>{{ shirt.title }}</h2>
-               <a href="{% url 'things_detail' shirt.id %}" class="card__add">Подробнее</a>
+                <a href="/show_detail/{{ shirt.id }}" class="card__add">Подробнее</a>
+                <a href="{% url 'thing_update' id=shirt.id %}" class="btn btn-primary">Edit Thing</a>
+                <a href="{% url 'thing_delete' id=shirt.id %}" class="btn btn-primary">Delete Thing</a>
 
             </div>
         </div>
     {% endfor %}
-
-    <br>
 </div>
+<br>
 {% endblock %}
+

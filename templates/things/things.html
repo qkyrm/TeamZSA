@@ -152,21 +152,6 @@ h1 {
     }
 
 
-#lookForAll {
-    border: none;
-    border-radius: 10px; /* Измените значение по желанию */
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Добавляем плавный переход цвета */
-}
-
-#lookForAll:hover {
-    background-color:#6a5acd ; /* Измените цвет по желанию */
-    color: white; /* Измените цвет текста при наведении */
-}
-
 
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 h2 {
@@ -233,6 +218,8 @@ html, body {
   text-decoration: none;
   color:#fff ;
   font-size: 30px;
+  text-decoration: none;
+  color: #ffffff;
 }
 
 .menu > li {
@@ -249,6 +236,7 @@ html, body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
 }
 
 #menu-toggle {
@@ -260,6 +248,7 @@ html, body {
 .menu-button::after {
   display: block;
   background-color: black;
+  text-decoration: none;
   position: absolute;
   height: 4px;
   width: 30px;
@@ -338,8 +327,103 @@ html, body {
     border-bottom: 1px solid #444;
   }
 }
+section.join h1 {
+    font-size: 48px;
+    font-weight: normal;
+    color: rgb(255, 255, 255);
+}
+.auth-block {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.auth-btn-white {
+    color: rgb(255, 255, 255);
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-image: initial;
+}
+.auth-btn-2 {
+    font-size: 36px;
+}
+.auth-btn {
+    font-size: 24px;
+    background-color: transparent;
+    text-decoration: none;
+    padding: 15px 30px;
+    transition: all 0.5s ease 0s;
+}
+.auth-btn-red {
+    color: #4B0082;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #4B0082;
+    border-image: initial;
 
-  </style>
+}
+.auth-btn-2 {
+    font-size: 36px;
+}
+.auth-btn {
+    font-size: 24px;
+    background-color: transparent;
+    text-decoration: none;
+    padding: 15px 30px;
+    transition: all 0.5s ease 0s;
+}
+a {
+    transition: all 0.5s ease 0s;
+    text-decoration: none;
+}
+section.join h1 {
+    font-size: 48px;
+    font-weight: normal;
+    color: rgb(255, 255, 255);
+}
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+h1 span {
+    color: #4B0082;
+}
+section.join h1 {
+    font-size: 48px;
+    font-weight: normal;
+    color: rgb(255, 255, 255);
+}
+section {
+    margin-bottom: 150px;
+}
+.join {
+    display: flex;
+    max-width: 1200px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px auto;
+    padding: 30px;
+
+}
+* join {
+    box-sizing: border-box;
+    font-family: Montserrat, sans-serif;
+    scroll-behavior: smooth;
+    color: rgb(255, 255, 255);
+
+}
+.thumb-content{
+text-decoration: none;
+color: white;
+}
+
+
+</style>
 </head>
 <body>
 
@@ -354,6 +438,7 @@ html, body {
   </label>
  <div class="menu-container">
     <ul class="menu">
+        <li><a href="{% url 'things' %}" >Home</a></li>
       <li><a href="{% url 'page2' %}" >Sweetshirts</a></li>
       <li><a href="{% url 'page3' %}" >Mugs</a></li>
       <li><a href="{% url 'page4' %}" >Bags</a></li>
@@ -361,15 +446,13 @@ html, body {
     </ul>
  </div>
   </section>
-
-
 <div class="background-image">
         <!-- Ваш контент для главной страницы здесь -->
     <h1>Добро пожаловать в интернет-магазин IT-Wear shop!</h1>
 </div>
 <div class="shop-info">
         <p>Вы сможете найти в нашем магазине любую одежду на ваш цвет и вкус.</p>
-        <button id="lookForAll" class="rounded-button">Смотреть все товары</button>
+
     </div>
 
 <br>
@@ -418,7 +501,49 @@ html, body {
     </a>
 </div>
 
+<section class="join">
+  <div>
+    <img src="https://i.pinimg.com/564x/18/02/30/180230133dab1ee13c0e19215d3b09dd.jpg" >
+  </div>
+  <div>
+    <h1 >Join our <span>community</span></h1>
+    <div style"{} class="auth-block">
 
+    </div>
+  </div>
+</section>
+
+
+{% block content %}
+  <h1>Things List</h1>
+
+  <a href="{% url 'create_thing' %}" class="btn btn-success">Create Thing</a>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for thing in show_key %}
+        <tr>
+          <td>{{ thing.title }}</td>
+          <td>{{ thing.description }}</td>
+          <td>
+            <a href="{% url 'things_detail' id=thing.id %}" class="btn btn-info">Detail</a>
+            <a href="{% url 'thing_update' id=thing.id %}" class="btn btn-warning">Edit</a>
+            <a href="{% url 'thing_delete' id=thing.id %}" class="btn btn-danger">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+
+<br>
 <footer id="footer" class="footer-1">
 <div class="main-footer widgets-dark typo-light">
 <div class="containerr">
@@ -426,7 +551,7 @@ html, body {
 
 <div class="col-xs-12 col-sm-6 col-md-3">
 <div class="widget subscribe no-box">
-<h4 class="widget-title">COMPANY INFORMATION<span></span></h4>
+
     <p>  IT-Wear Shop – ваш уникальный источник стильной одежды с особым акцентом на качество и комфорт.</p>
 </div>
 </div>
@@ -452,6 +577,10 @@ html, body {
 </ul>
 </div>
 </div>
+
+
+
+
 
 <div class="col-xs-12 col-sm-6 col-md-3">
 <div class="widget no-box">

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Things List</h1>
+
+  {% if show_key %}
+    <div class="cards-container">
+      {% for thing in show_key %}
+        <div class="card">
+          <div class="card__top">
+            <a href="#" class="card__image">
+              <img src="{{ thing.image.url }}" alt="{{ thing.title }}">
+            </a>
+            <!-- Добавьте нужную логику для отображения каких-либо меток или дополнительной информации -->
+          </div>
+          <div class="card__bottom">
+            <h2>{{ thing.title }}</h2>
+            <p>{{ thing.description }}</p>
+            <p>Cost: {{ thing.cost }}</p>
+            <a href="{% url 'things_detail' id=thing.id %}" class="card__add">Подробнее</a>
+            <button class="underline-button">Добавить в корзину</button>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>Нет доступных товаров.</p>
+  {% endif %}
+{% endblock %}
