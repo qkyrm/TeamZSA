@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegistrationForm  # Исправлен импорт
+from .forms import UserRegistrationForm
+
+
 
 @login_required
 def dashboard(request):
@@ -20,3 +22,7 @@ def register(request):
 
     # Если форма не прошла валидацию или это GET-запрос, отображаем форму
     return render(request, 'registration/register.html', {'user_form': user_form})
+
+
+
+

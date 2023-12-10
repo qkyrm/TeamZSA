@@ -20,8 +20,8 @@
             </div>
             <div class="card__bottom">
                 <h2>{{ shirt.title }}</h2>
-                <a href="/show_detail/{{ shirt.id }}" class="card__add">Подробнее</a>
-                <button class="underline-button">Добавить в корзину</button>
+               <a href="{% url 'things_detail' shirt.id %}" class="card__add">Подробнее</a>
+
             </div>
         </div>
     {% endfor %}

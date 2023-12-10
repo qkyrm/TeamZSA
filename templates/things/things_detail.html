@@ -1,154 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
 <style>
-    ::selection {
-       background-color:#cb5e49;
-       color: white;
-       }
-    body {
-     background-color:#FEF3E0;
-     font-family: Montserrat, sans-serif;
-     font-weight: 300;
-     font-size:1rem;
-     color:#232323;
-     overflow-anchor: auto;
-     scroll-behavior:smooth;
-     font-size adjust: 100%;
-     }
+  .product-details {
+    display: flex;
+    align-items: flex-start;
+  }
 
-    div {
-    display: block;
-    }
+  .product-description {
+    background-color: #E6E6FA;
+    font-size: 21px;
+    color: black;
+    padding:10px;
+    border-radius: 5px;
+    margin-left: 1px; /* или другое значение, чтобы создать отступ между изображением и описанием/ценой */
+    flex: 1;
 
-    * {
-      padding:0;
-      margin:0;
-      outline:none;
-    }
+  }
 
-   .box-tovar .details {
-      margin:20px;
-   }
-
-   @media (max-width:1250px) and (min-width:1051px)
-   .box-tovar .details {
-   width: 60px;
-   }
-
-   h1 {
-      display: block;
-      font-size: 2em;
-      margin-block-start: 0.67em;
-      margin-block-end: 0.67em;
-      margin-inline-start: 0px;
-      margin-inline-end: 0 px;
-      font-weight: bold;
-   }
-
-   : -webkit-any(article, aside, nav, section) h1 {
-      font-size: 1.5em;
-      margin-block-start: 0.83em;
-      margin-block-end: 0.83em;
-   }
-   * {
-     padding: 0;
-     margin: 0;
-     outline:none;
-   }
-
-   @media (min-width: 551 px)
-     .box-tovar .details h1 {
-     font-size: 35px;
-     }
-     element.style {
-   }
-
-   table {
-        display:table;
-        border-collapse: separate;
-        box-sizing: border-box;
-        text-indent:initial;
-        border-spacing: 2px;
-        border-color: gray ;
-   }
-   * {
-       padding: 0;
-       margin: 0;
-       outline: none;
-   }
-
-   .box-tovar .details .features-tovar {
-     margin-top: 15px;
-     width: 100%
-     border-collapse: collapse ;
-     border: 1px solid #d3d3d3;
-     background :#F3F3F3;
-   }
-
-   table {
-        border-collapse : separate;
-        text-indent:initial;
-        border-spacing: 2px;
-   }
-   td {
-        display: table-cell;
-        vertical-align: inherit;
-   }
-   .box-tovar .details . features-tovar tr td:first-of-type, .box-tovar .details .buy-section .razmer >
-     div:first-of-type span: first-of-type {
-     font-weight: bold;
-     padding: 15px 10px;
-     width: 80px;
-     border-right: 1px solid #d3d3d3;
-   }
-   .box-tovar .details .features-tovar tr td:last-of-type {
-      padding: 15px;
-   }
-
-
+  .product-image {
+    max-width: 200px; /* или другое значение для максимальной ширины изображения */
+    max-height:200px
+    border: 1px solid red ; /* рамка вокруг изображения */
+    padding: 5px; /* внутренний отступ внутри рамки */
+  }
+    .product-cost {
+    background-color: #DCDCDC;
+    font-size: 21px;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .product-act {
+  background-color: #2D2D67;
+  font-size: 21px;
+  color: white;
+  padding:10px;
+  border-radius: 5px;
+  }
 
 </style>
-</head>
-<body>
-<h1>Детальная информация о товаре {{show_id_key.title}} </h1>
-<img src="{{show_id_key.image.url}}" alt="">
-{{show_id_key.description}}
-{{show_id_key.cost}}
-{{show_id_key.created_at}}
+{% endblock %}
 
-<div class="details">
-
-    <h1></h1>
-    <span class="is-exists"><span class="exists"><i class="fas fa-check"></i> Есть в наличии</span></span>
-    <table class="features-tovar">
-        <tbody>
-        <tr><td>Состав</td><td></td></tr>
-        <tr><td>Покрой</td><td>Универсальный для всех типов телосложения</td></tr>
-        </tbody>
-    </table>
-    <div class="description">
-        <p></p>
-        <p class="gift">При покупке товаров на сумму от <b>2 500 рублей</b> в подарок сертификат на <b>1 000 рублей</b> </p>
+{% block content %}
+  <div class="product-details">
+    <div class="product-image">
+      {% if show_id_key.image %}
+        <img src="{{ show_id_key.image.url }}" alt="{{ show_id_key.name }}">
+      {% endif %}
     </div>
-    <div class="buy-section">
-        <div class="razmer">
-            <div>
-                <span>Размер</span>
-                <span class="flex-mobile">
-                    <button>S</button><button>M</button><button>L</button><button>XL</button><button>XXL</button>
-                </span>
-            </div>
-            <div><button onclick="$('#setka_razmerov').show()">Размерная сетка</button></div>
-            <h1></h1>
-            <h1></h1>
-        </div>
-        <div class="buy">
-            <div class="price"> </div>
-
-
-
-</body>
-</html>
+    <div class="product-description">
+      <h1>{{ show_id_key.name }}</h1>
+      <p>Description: {{ show_id_key.description }}</p>
+    </div>
+    <div class="product-cost">
+      <p>Cost: {{ show_id_key.cost }} ₽ </p>
+    </div>
+    <div class="product-act">
+      <p>Act: {{show_id_key.act}} </p>
+    </div>
+  </div>
+{% endblock %}

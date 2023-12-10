@@ -1,55 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
 
-<p>lorem15<h1>lorem22<h1>heuahfb;a</h1>
-</h1>
-</p>
+{% block css %}
 
-{% for i in post_key%}
-{{i.title}}<br>
-{{i.description}}<br>
-
-<img src="{{i.image.url }}" alt=""><br>
-{{i.cost}}<br>
-{{i.create_date}}
-<hr>
-
-<div class="details">
-    <h1>Футболка «#прогер»</h1>
-    <span class="is-exists"><span class="exists"><i class="fas fa-check"></i> Есть в наличии</span>
-    </span>
-    <table class="features-tovar">
-        <tbody>
-        <tr><td>Состав</td><td>100% хлопок</td>
-        </tr>
-        <tr><td>Покрой</td><td>Универсальный для всех типов телосложения</td>
-        </tr>
-        </tbody>
-    </table>
-    <div class="description">
-        <p>Футболка с хэштегом «прогер» - пусть все знают кто тут программист!</p>
-        <p class="gift">При покупке товаров на сумму от <b>2 500 рублей</b> в подарок сертификат на <b>1 000 рублей</b> в онлайн школе «<a href="https://itproger.com" target="_blank">itProger</a>»</p>
-    </div>
-    <div class="buy-section">
-        <div class="razmer">
-            <div>
-                <span>Размер</span>
-                <span class="flex-mobile">
-                    <button>S</button><button>M</button><button>L</button><button>XL</button><button>XXL</button>								</span>
-            </div>
-            <div><button onclick="$('#setka_razmerov').show()">Размерная сетка</button></div>
-        </div>
-
-        <div class="buy">
-
-            <div class="price">950 руб.</div>
-
-{% endfor %}
-
-</body>
-</html>
+{% endblock %}

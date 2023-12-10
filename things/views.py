@@ -13,7 +13,7 @@ def ThingsListView(request):
     html_name = 'things/things.html'
     return render(request, html_name, context)
 
-def ThingsDeteilView(request, id):
+def ThingsDetailView(request, id):
     if  request.method == "GET":
         show_id_key = get_object_or_404(Things, id=id)
         return render(request, template_name='things/things_detail.html', context={"show_id_key":show_id_key})
