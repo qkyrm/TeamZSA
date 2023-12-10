@@ -191,7 +191,6 @@ html, body {
   justify-content: center ;
   background-color:white;
   background: linear-gradient(to left, #000000, #6a5acd );
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
   height: 50px;
   padding: 10 px;
@@ -232,6 +231,8 @@ html, body {
   text-decoration: none;
   color:#fff ;
   font-size: 30px;
+  text-decoration: none;
+  color: #ffffff;
 }
 
 .menu > li {
@@ -248,6 +249,7 @@ html, body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
 }
 
 #menu-toggle {
@@ -259,6 +261,7 @@ html, body {
 .menu-button::after {
   display: block;
   background-color: black;
+  text-decoration: none;
   position: absolute;
   height: 4px;
   width: 30px;
@@ -337,8 +340,103 @@ html, body {
     border-bottom: 1px solid #444;
   }
 }
+section.join h1 {
+    font-size: 48px;
+    font-weight: normal;
+    color: rgb(255, 255, 255);
+}
+.auth-block {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.auth-btn-white {
+    color: rgb(255, 255, 255);
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-image: initial;
+}
+.auth-btn-2 {
+    font-size: 36px;
+}
+.auth-btn {
+    font-size: 24px;
+    background-color: transparent;
+    text-decoration: none;
+    padding: 15px 30px;
+    transition: all 0.5s ease 0s;
+}
+.auth-btn-red {
+    color: #4B0082;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #4B0082;
+    border-image: initial;
 
-  </style>
+}
+.auth-btn-2 {
+    font-size: 36px;
+}
+.auth-btn {
+    font-size: 24px;
+    background-color: transparent;
+    text-decoration: none;
+    padding: 15px 30px;
+    transition: all 0.5s ease 0s;
+}
+a {
+    transition: all 0.5s ease 0s;
+    text-decoration: none;
+}
+section.join h1 {
+    font-size: 48px;
+    font-weight: normal;
+    color: rgb(255, 255, 255);
+}
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+h1 span {
+    color: #4B0082;
+}
+section.join h1 {
+    font-size: 48px;
+    font-weight: normal;
+    color: rgb(255, 255, 255);
+}
+section {
+    margin-bottom: 150px;
+}
+.join {
+    display: flex;
+    max-width: 1200px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px auto;
+    padding: 30px;
+
+}
+* join {
+    box-sizing: border-box;
+    font-family: Montserrat, sans-serif;
+    scroll-behavior: smooth;
+    color: rgb(255, 255, 255);
+
+}
+.thumb-content{
+text-decoration: none;
+color: white;
+}
+
+
+</style>
 </head>
 <body>
 
@@ -360,15 +458,13 @@ html, body {
     </ul>
  </div>
   </section>
-
-
 <div class="background-image">
         <!-- Ваш контент для главной страницы здесь -->
     <h1>Добро пожаловать в интернет-магазин IT-Wear shop!</h1>
 </div>
 <div class="shop-info">
         <p>Вы сможете найти в нашем магазине любую одежду на ваш цвет и вкус.</p>
-        <button id="lookForAll" class="rounded-button">Смотреть все товары</button>
+
     </div>
 
 <br>
@@ -417,7 +513,19 @@ html, body {
     </a>
 </div>
 
-
+<section class="join">
+  <div>
+    <img src="https://i.pinimg.com/564x/18/02/30/180230133dab1ee13c0e19215d3b09dd.jpg" >
+  </div>
+  <div>
+    <h1 >Join our <span>community</span></h1>
+    <div style"{} class="auth-block">
+      <a href="{% url 'login' %}" class="auth-btn auth-btn-2 auth-btn-white">Sign in</a>
+      <a href="{% url 'register' %}" class="auth-btn auth-btn-2 auth-btn-red">Sign up </a>
+    </div>
+  </div>
+</section>
+<br>
 <footer id="footer" class="footer-1">
 <div class="main-footer widgets-dark typo-light">
 <div class="containerr">
@@ -425,7 +533,7 @@ html, body {
 
 <div class="col-xs-12 col-sm-6 col-md-3">
 <div class="widget subscribe no-box">
-<h4 class="widget-title">COMPANY INFORMATION<span></span></h4>
+
     <p>  IT-Wear Shop – ваш уникальный источник стильной одежды с особым акцентом на качество и комфорт.</p>
 </div>
 </div>
@@ -454,6 +562,10 @@ html, body {
 </ul>
 </div>
 </div>
+
+
+
+
 
 <div class="col-xs-12 col-sm-6 col-md-3">
 <div class="widget no-box">

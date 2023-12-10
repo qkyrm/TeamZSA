@@ -14,6 +14,7 @@
     background-size: cover;
     height: 100vh;
     margin: 0;
+    color-text: #ffffff ;
 }
 
 
@@ -415,7 +416,7 @@ html, body {
 
 {% endblock %}
 
-  </style>>
+  </style>
   </head>
 
 <body>
@@ -423,14 +424,14 @@ html, body {
   <section class="top-nav">
     <div class = "logo">
          <img src="https://i.pinimg.com/564x/d8/3c/6a/d83c6a5b81415184269297928e14224b.jpg" alt="Your Shop Logo">
-        <h2> IT-Wear shop </h2>
+        <h2>  IT-Wear shop</h2>
     </div>
     <input id="menu-toggle" type="checkbox" />
     <label class='menu-button-container' for="menu-toggle">
     <div class='menu-button'></div>
   </label>
     <ul class="menu">
-      <li><a href="{% url 'page1' %}" >All</a></li>
+
       <li><a href="{% url 'page2' %}" >Sweetshirts</a></li>
       <li><a href="{% url 'page3' %}" >Mugs</a></li>
       <li><a href="{% url 'page4' %}" >Bags</a></li>
@@ -442,6 +443,14 @@ html, body {
 {% block content %}
 
 {% endblock %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <footer id="footer" class="footer-1">
 <div class="main-footer widgets-dark typo-light">
