@@ -1,38 +1,17 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import User
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth.views import LoginView, LogoutView
-from django.urls import reverse
-from django.views.generic import CreateView, ListView
-from django.urls import reverse_lazy
-from . import forms
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
-class RegistrationView(CreateView):
-    form_class = UserCreationForm
-    form_class = forms.CustomRegistrationForm
-    template_name = 'registration/register.html'
-    success_url = '/login/'
+@login_required
+def dashboard(request):
+    return render(request, 'registration/dashboard.html', {'section': 'dashboard'})
+def change_password_view(request):
+    if request.method == 'POST':
+        messages.success(request, 'Password changed successfully.')
 
+        return redirect('dashboard')  # Или куда-то еще, куда вы хотите перенаправить пользователя после изменения пароля
 
-class AuthLoginView(LoginView):
-    form_class = AuthenticationForm
-    template_name = 'registration/login.html'
-
-    def get_success_url(self):
-        return redirect('/')
-
-
-class AuthLogoutView(LogoutView):
-    next_page = reverse_lazy('users:login')
-
-
-class UserListView(ListView):
-    template_name = 'registration/user_list.html'
-    model = User
-
-    def get_queryset(self):
-        return self.model.objects.all()
 
 def form_view(request):
     return render(request, 'form.html')
-
+    return render(request, 'your_template.html')

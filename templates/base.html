@@ -8,11 +8,14 @@
        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat">
   <style>
   body {
+
+ body {
     background-color: black ;
     background-size: cover;
     height: 100vh;
     margin: 0;
 }
+
 
   .cards {
   display: grid;
@@ -161,6 +164,7 @@
         }
 
 /* Main Footer */
+
 footer .main-footer{ padding: 20px 0; background: linear-gradient(to right, black , #6a5acd ); margin-top: auto; }
 footer ul{ padding-left: 0; list-style: none;}
 
@@ -172,6 +176,11 @@ body {
 
 
 }
+
+footer .main-footer{ padding: 20px 0; background: linear-gradient(to right, black ,  #2D2D67 ) ; margin-top: auto; }
+footer ul{ padding-left: 0; list-style: none;}
+
+
 
 /* Copy Right Footer */
 .footer-copyright { background: #000000 ; padding: 5px 0;}
@@ -269,7 +278,7 @@ html, body {
   align-items: center;
   justify-content: center ;
   background-color: white ;
-  background: linear-gradient(to left,  #000000, #6a5acd  );
+  background: linear-gradient(to left, #000000, #2d2d67 );
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
   height: 50px;
@@ -413,7 +422,7 @@ html, body {
 
 {% endblock %}
 
-  </style>
+  </style>>
   </head>
 
 <body>
@@ -480,9 +489,14 @@ html, body {
 
 <div class="col-xs-12 col-sm-6 col-md-3">
 <div class="widget no-box">
-<h4 class="widget-title">GET STARTED <span></span></h4>
+    <h4 class="widget-title">GET STARTED <span></span></h4>
+
 <p>Сделайте первый шаг к стильной жизни с IT-Wear Shop. Начните прямо сейчас!</p>
 <a class="btn" href="{% url 'users:login' %}" target="_blank">Авторизация</a>
+
+<p>Get access to your full Training and Marketing Suite.</p>
+<a class="btn" href="{% url 'login' %}" target="_blank">Зарегистрироваться</a>
+
 </div>
 </div>
 

@@ -6,7 +6,7 @@ class Things(models.Model):
         ('NO', "NO")
     )
     type = models.CharField(max_length=100)
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=200)
     description = models.TextField()
     image = models.ImageField(upload_to='products/')
     act = models.CharField(max_length=100, choices=CHOICE_ACT)
