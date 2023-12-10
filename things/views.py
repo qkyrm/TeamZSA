@@ -1,5 +1,9 @@
 from django.http import HttpResponseServerError
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse_lazy, reverse
+from django.views.generic import UpdateView, DeleteView
+from .forms import ThingForm
+
 from .models import Things
 from . import models
 
@@ -47,3 +51,44 @@ def TshirtListView(request):
         html_name = 'things/page5.html'
         return render(request, html_name, context)
 
+def thing_update(request, id):
+    thing = get_object_or_404(Things, id=id)
+
+    if request.method == 'POST':
+        form = ThingForm(request.POST, instance=thing)
+        if form.is_valid():
+            form.save()
+            return redirect('page2')
+  # Update this line
+    else:
+        form = ThingForm(instance=thing)
+
+    return render(request, 'things/things_form.html', {'form': form, 'thing': thing})
+
+
+def thing_delete(request, id):
+    thing = get_object_or_404(Things, id=id)
+    if request.method == 'POST':
+        thing.delete()
+        return redirect('page2')
+    # Optionally, render a confirmation template for GET requests.
+    return render(request, 'things/things_confirm_delete.html', {'thing': thing})
+
+
+
+
+def create_thing(request):
+    if request.method == 'POST':
+        form = ThingForm(request.POST, request.FILES)
+        if form.is_valid():
+            new_thing = form.save(commit=False)
+            new_thing.user = request.user
+            new_thing.save()
+            return redirect('things_list')
+    else:
+        form = ThingForm()
+
+    return render(request, 'things/create_thing.html', {'form': form})
+def things_list_view(request):
+    things = Things.objects.all()
+    return render(request, 'things/things_list.html', {'things': things})

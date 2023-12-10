@@ -21,7 +21,8 @@
             <div class="card__bottom">
                 <h2>{{ bag.title }}</h2>
                 <a href="/show_detail/{{ bag.id }}" class="card__add">Подробнее</a>
-                <button class="underline-button">Добавить в корзину</button>
+                <a href="{% url 'thing_update' id=bag.id %}" class="btn btn-primary">Edit Thing</a>
+                <a href="{% url 'thing_delete' id=bag.id %}" class="btn btn-primary">Delete Thing</a>
             </div>
         </div>
     {% endfor %}

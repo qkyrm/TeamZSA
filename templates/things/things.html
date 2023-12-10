@@ -451,6 +451,7 @@ color: white;
   </label>
  <div class="menu-container">
     <ul class="menu">
+        <li><a href="{% url 'things' %}" >Home</a></li>
       <li><a href="{% url 'page2' %}" >Sweetshirts</a></li>
       <li><a href="{% url 'page3' %}" >Mugs</a></li>
       <li><a href="{% url 'page4' %}" >Bags</a></li>
@@ -520,11 +521,41 @@ color: white;
   <div>
     <h1 >Join our <span>community</span></h1>
     <div style"{} class="auth-block">
-      <a href="{% url 'login' %}" class="auth-btn auth-btn-2 auth-btn-white">Sign in</a>
-      <a href="{% url 'register' %}" class="auth-btn auth-btn-2 auth-btn-red">Sign up </a>
+
     </div>
   </div>
 </section>
+
+
+{% block content %}
+  <h1>Things List</h1>
+
+  <a href="{% url 'create_thing' %}" class="btn btn-success">Create Thing</a>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for thing in show_key %}
+        <tr>
+          <td>{{ thing.title }}</td>
+          <td>{{ thing.description }}</td>
+          <td>
+            <a href="{% url 'things_detail' id=thing.id %}" class="btn btn-info">Detail</a>
+            <a href="{% url 'thing_update' id=thing.id %}" class="btn btn-warning">Edit</a>
+            <a href="{% url 'thing_delete' id=thing.id %}" class="btn btn-danger">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+
 <br>
 <footer id="footer" class="footer-1">
 <div class="main-footer widgets-dark typo-light">
