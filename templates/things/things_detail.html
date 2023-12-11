@@ -3,9 +3,11 @@
 
 {% block css %}
 <style>
+
   .product-details {
     display: flex;
     align-items: flex-start;
+    justify-content: flex-start;
   }
 
   .product-description {
@@ -16,21 +18,26 @@
     border-radius: 5px;
     margin-left: 1px; /* или другое значение, чтобы создать отступ между изображением и описанием/ценой */
     flex: 1;
-
+    display: flex;
+    flex-direction: column;
+    margin-right:30px;
   }
+
 
   .product-image {
     max-width: 200px; /* или другое значение для максимальной ширины изображения */
     max-height:200px
     border: 1px solid red ; /* рамка вокруг изображения */
     padding: 5px; /* внутренний отступ внутри рамки */
+    margin-right: 20px;
   }
-    .product-cost {
+  .product-cost {
     background-color: #DCDCDC;
     font-size: 21px;
     color: black;
     padding: 10px;
     border-radius: 5px;
+    margin-right: 30px;
   }
   .product-act {
   background-color: #2D2D67;
@@ -38,20 +45,25 @@
   color: white;
   padding:10px;
   border-radius: 5px;
+  margin-right: 30px;
   }
-  h1 {
-  animation: blink 1s infinite;
-  color: white;
-  font-family: Montserrat;
-}
 
-@keyframes blink {
-  0%, 100% {
-    opacity: 1;
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
   }
-  50% {
-    opacity: 0;
+  40% {
+    transform: translateY(-30px);
   }
+  60% {
+    transform: translateY(-15px);
+  }
+  }
+
+  h1 {
+  animation: bounce 1s infinite;
+  color: #E6E6FA;
+  font-family:Montserrat;
 }
 
 
