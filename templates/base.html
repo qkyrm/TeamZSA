@@ -24,7 +24,7 @@
   display: grid;
   /* Автоматически заполняем на всю ширину grid-контейнера */
   grid-template-columns: repeat(auto-fill, 225px);
-  width: 100%;
+  width: 100%;x
   max-width: 1000px; /* Ширина grid-контейнера */
   justify-content: center;
   justify-items: center; /* Размещаем карточку по центру */
@@ -473,7 +473,9 @@ html, body {
 <div class="widget no-box">
 <h4 class="widget-title">QUICK LINKS<span></span></h4>
 <ul class="thumbnail-widget">
-
+<li>
+<div class="thumb-content"><a href="{% url 'things' %}">Home</a></div>
+</li>
 <li>
 <div class="thumb-content"><a href="{% url 'page2' %}">Sweetshirts</a></div>
 </li>
@@ -486,7 +488,7 @@ html, body {
 <li>
 <div class="thumb-content"><a href="{% url 'page5' %}">T-shirts</a></div>
 </li>
-<li> <li><a class="btn" href="#." target="_blank">Register Now</a></li></li>
+
 </ul>
 </div>
 </div>
@@ -495,11 +497,11 @@ html, body {
 <div class="widget no-box">
     <h4 class="widget-title">GET STARTED <span></span></h4>
 
-<p>Сделайте первый шаг к стильной жизни с IT-Wear Shop. Начните прямо сейчас!</p>
+<p>Если хотите добавить товар прошу вас войти в свой аккаунт</p>
 <a class="btn" href="{% url 'login' %}" target="_blank">Авторизация</a>
 
 <p>Зарегистрируйтесь  прямо сейчас!</p>
-<a class="btn" href="{% url 'login' %}" target="_blank">Зарегистрироваться</a>
+<a class="btn" href="{% url 'register' %}" target="_blank">Зарегистрироваться</a>
 
 </div>
 </div>
@@ -517,9 +519,7 @@ html, body {
 <li class=""><a title="Telegram" target="_blank" href="/"><img alt="Telegram" width="30" height="30" src="https://w7.pngwing.com/pngs/224/500/png-transparent-telegram-logo-computer-icons-others-miscellaneous-blue-angle.png"></a></li>
 <li class=""><a title="VK" target="_blank" href="/"><img alt="VK" width="30" height="30" src="https://cdn-icons-png.flaticon.com/512/5968/5968835.png"></a></li>
 </ul>
-    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-    <a class="btn btn-primary me-md-2" href="form.html">Заполнить форму</a>
-</div>
+
 </div>
 </div>
 

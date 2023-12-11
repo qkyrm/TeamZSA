@@ -360,6 +360,7 @@ section.join h1 {
     border-style: solid;
     border-color: #4B0082;
     border-image: initial;
+     text-align: center;
 
 }
 .auth-btn-2 {
@@ -421,6 +422,9 @@ section {
 text-decoration: none;
 color: white;
 }
+.third{
+ text-align: center;
+}
 
 
 </style>
@@ -438,12 +442,20 @@ color: white;
   </label>
  <div class="menu-container">
     <ul class="menu">
+        {% if user.is_authenticated %}
+          <ul>
+        <li><a href="{% url 'create_thing' %}">Create Thing</a></li>
+
+        <!-- Другие пункты меню для аутентифицированных пользователей -->
+    </ul>
+      {% else %}
         <li><a href="{% url 'things' %}" >Home</a></li>
       <li><a href="{% url 'page2' %}" >Sweetshirts</a></li>
       <li><a href="{% url 'page3' %}" >Mugs</a></li>
       <li><a href="{% url 'page4' %}" >Bags</a></li>
       <li><a href="{% url 'page5' %}" >T-shirts</a></li>
     </ul>
+     {% endif %}
  </div>
   </section>
 <div class="background-image">
@@ -508,41 +520,24 @@ color: white;
   <div>
     <h1 >Join our <span>community</span></h1>
     <div style"{} class="auth-block">
-
+         <a href="{% url 'login' %}" class="auth-btn auth-btn-2 auth-btn-white">Sign in</a>
+         <a href="{% url 'register' %}" class="auth-btn auth-btn-2 auth-btn-red">Sign up </a>
     </div>
   </div>
 </section>
 
 
-{% block content %}
-  <h1>Things List</h1>
+<!--{% block content %}-->
+<!--  <h1>Things List</h1>-->
+<!--<a href="{% url 'create_thing' %}" class="auth-btn auth-btn-2 auth-btn-red third">Create Thing</a>-->
+<!--{% endblock %}-->
 
-  <a href="{% url 'create_thing' %}" class="btn btn-success">Create Thing</a>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for thing in show_key %}
-        <tr>
-          <td>{{ thing.title }}</td>
-          <td>{{ thing.description }}</td>
-          <td>
-            <a href="{% url 'things_detail' id=thing.id %}" class="btn btn-info">Detail</a>
-            <a href="{% url 'thing_update' id=thing.id %}" class="btn btn-warning">Edit</a>
-            <a href="{% url 'thing_delete' id=thing.id %}" class="btn btn-danger">Delete</a>
-          </td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-{% endblock %}
-
+  {% if user.is_authenticated %}
+    <form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Выйти</button>
+</form>
+{% endif %}
 <br>
 <footer id="footer" class="footer-1">
 <div class="main-footer widgets-dark typo-light">
@@ -560,7 +555,9 @@ color: white;
 <div class="widget no-box">
 <h4 class="widget-title">QUICK LINKS<span></span></h4>
 <ul class="thumbnail-widget">
-
+<li>
+<div class="thumb-content"><a href="{% url 'things' %}">Home</a></div>
+</li>
 <li>
 <div class="thumb-content"><a href="{% url 'page2' %}">Sweetshirts</a></div>
 </li>
@@ -572,9 +569,7 @@ color: white;
 </li>
 <li>
 <div class="thumb-content"><a href="{% url 'page5' %}">T-shirts</a></div>
-</li>
-<li> <li><a class="btn" href="#." target="_blank">Register Now</a></li></li>
-</ul>
+
 </div>
 </div>
 
@@ -586,7 +581,7 @@ color: white;
 <div class="widget no-box">
 <h4 class="widget-title">GET STARTED <span></span></h4>
 
-<p>Сделайте первый шаг к стильной жизни с IT-Wear Shop. Начните прямо сейчас!</p>
+<p>Если хотите добавить товар прошу вас войти в свой аккаунт</p>
 <a class="btn" href="{% url 'login' %}" target="_blank">Авторизация</a>
 
 <p>Зарегистрируйтесь прямо сейчас!</p>
@@ -608,9 +603,7 @@ color: white;
 <li class=""><a title="Telegram" target="_blank" href="/"><img alt="Telegram" width="30" height="30" src="https://w7.pngwing.com/pngs/224/500/png-transparent-telegram-logo-computer-icons-others-miscellaneous-blue-angle.png"></a></li>
 <li class=""><a title="VK" target="_blank" href="/"><img alt="VK" width="30" height="30" src="https://cdn-icons-png.flaticon.com/512/5968/5968835.png"></a></li>
 </ul>
-    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-    <a class="btn btn-primary me-md-2" href="form.html">Заполнить форму</a>
-</div>
+
 </div>
 </div>
 

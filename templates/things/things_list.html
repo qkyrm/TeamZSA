@@ -18,7 +18,6 @@
             <p>{{ thing.description }}</p>
             <p>Cost: {{ thing.cost }}</p>
             <a href="{% url 'things_detail' id=thing.id %}" class="card__add">Подробнее</a>
-            <button class="underline-button">Добавить в корзину</button>
           </div>
         </div>
       {% endfor %}

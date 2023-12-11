@@ -1,3 +1,4 @@
+from django.contrib.auth import logout
 from django.http import HttpResponseServerError
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
@@ -58,7 +59,6 @@ def thing_update(request, id):
         if form.is_valid():
             form.save()
             return redirect('page2')
-  # Update this line
     else:
         form = ThingForm(instance=thing)
 
@@ -73,7 +73,18 @@ def thing_delete(request, id):
     # Optionally, render a confirmation template for GET requests.
     return render(request, 'things/things_confirm_delete.html', {'thing': thing})
 
+def create_thing(request):
+    if request.method == 'POST':
+        form = ThingForm(request.POST, request.FILES)
+        if form.is_valid():
+            new_thing = form.save(commit=False)
+            new_thing.user = request.user
+            new_thing.save()
+            return redirect('things_list')
+    else:
+        form = ThingForm()
 
+    return render(request, 'things/create_thing.html', {'form': form})
 
 
 def create_thing(request):
@@ -91,3 +102,8 @@ def create_thing(request):
 def things_list_view(request):
     things = Things.objects.all()
     return render(request, 'things/things_list.html', {'things': things})
+
+def logout_view(request):
+    logout(request)
+    # Дополнительные действия после выхода из аккаунта, если необходимо
+    return redirect('some_view')
