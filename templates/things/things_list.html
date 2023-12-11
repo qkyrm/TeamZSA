@@ -3,15 +3,14 @@
 {% block content %}
   <h1>Things List</h1>
 
-  {% if show_key %}
+  {% if things %}
     <div class="cards-container">
-      {% for thing in show_key %}
+      {% for thing in things %}
         <div class="card">
           <div class="card__top">
             <a href="#" class="card__image">
               <img src="{{ thing.image.url }}" alt="{{ thing.title }}">
             </a>
-            <!-- Добавьте нужную логику для отображения каких-либо меток или дополнительной информации -->
           </div>
           <div class="card__bottom">
             <h2>{{ thing.title }}</h2>

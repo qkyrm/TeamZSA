@@ -87,18 +87,7 @@ def create_thing(request):
     return render(request, 'things/create_thing.html', {'form': form})
 
 
-def create_thing(request):
-    if request.method == 'POST':
-        form = ThingForm(request.POST, request.FILES)
-        if form.is_valid():
-            new_thing = form.save(commit=False)
-            new_thing.user = request.user
-            new_thing.save()
-            return redirect('things_list')
-    else:
-        form = ThingForm()
 
-    return render(request, 'things/create_thing.html', {'form': form})
 def things_list_view(request):
     things = Things.objects.all()
     return render(request, 'things/things_list.html', {'things': things})
