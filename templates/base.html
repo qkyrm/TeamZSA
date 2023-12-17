@@ -441,6 +441,8 @@ html, body {
       <li><a href="{% url 'page3' %}" >Mugs</a></li>
       <li><a href="{% url 'page4' %}" >Bags</a></li>
       <li><a href="{% url 'page5' %}" >T-shirts</a></li>
+      <li><a href="{% url 'bin' %}" >Bin</a></li>
+
 
     </ul>
   </section>
@@ -465,7 +467,7 @@ html, body {
 <div class="col-xs-12 col-sm-6 col-md-3">
 <div class="widget subscribe no-box">
 <h4 class="widget-title">COMPANY INFORMATION<span></span></h4>
-<p> IT-Wear Shop – ваш уникальный источник стильной одежды с особым акцентом на качество и комфорт.</p>
+<p> IT-Wear Shop is your unique source for stylish clothing with a special emphasis on quality and comfort.</p>
 </div>
 </div>
 
@@ -488,6 +490,9 @@ html, body {
 <li>
 <div class="thumb-content"><a href="{% url 'page5' %}">T-shirts</a></div>
 </li>
+    <li>
+<div class="thumb-content"><a href="{% url 'bin' %}">Bin</a></div>
+</li>
 
 </ul>
 </div>
@@ -497,11 +502,11 @@ html, body {
 <div class="widget no-box">
     <h4 class="widget-title">GET STARTED <span></span></h4>
 
-<p>Если хотите добавить товар прошу вас войти в свой аккаунт</p>
-<a class="btn" href="{% url 'login' %}" target="_blank">Авторизация</a>
+<p>If you want to add a product, please log in to your account.</p>
+<a class="btn" href="{% url 'login' %}" target="_blank">Authorization</a>
 
-<p>Зарегистрируйтесь  прямо сейчас!</p>
-<a class="btn" href="{% url 'register' %}" target="_blank">Зарегистрироваться</a>
+<p>Register now!</p>
+<a class="btn" href="{% url 'register' %}" target="_blank">Register</a>
 
 </div>
 </div>

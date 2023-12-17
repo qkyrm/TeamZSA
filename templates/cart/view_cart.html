@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Корзина</h1>
+
+  {% if things_in_cart %}
+    <ul>
+      {% for thing in things_in_cart %}
+        <li>{{ thing.title }} - {{ thing.cost }} ₽</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Ваша корзина пуста.</p>
+  {% endif %}
+
+  <a href="{% url 'things' %}">Вернуться на главную</a>
+{% endblock %}

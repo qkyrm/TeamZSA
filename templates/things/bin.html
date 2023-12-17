@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<style>
+.cards {
+  display: grid;
+  /* Автоматически заполняем на всю ширину grid-контейнера */
+  grid-template-columns: repeat(auto-fill, 225px);
+  width: 100%;x
+  max-width: 1000px; /* Ширина grid-контейнера */
+  justify-content: center;
+  justify-items: center; /* Размещаем карточку по центру */
+  column-gap: 30px; /* Отступ между колонками */
+  row-gap: 40px; /* Отступ между рядами */
+  margin: 0 auto;
+  }
+.card {
+      display: flex;
+      width: 225px;
+      min-height: 350px;
+      box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column; /* Размещаем элементы в колонку */
+      border-radius: 4px;
+      transition: 0.2s;
+      position: relative;
+      justify-content: space-between;
+       flex-wrap: wrap;
+}
+
+/* При наведении на карточку - меняем цвет тени */
+.card:hover {
+  box-shadow: 4px 8px 16px rgba(255, 102, 51, 0.2);
+}
+
+.card__top {
+  flex: 0 0 220px; /* Задаем высоту 220px, запрещаем расширение и сужение по высоте */
+  position: relative;
+  overflow: hidden; /* Скрываем, что выходит за пределы */
+}
+
+/* Контейнер для картинки */
+.card__image {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card__image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Встраиваем картинку в контейнер card__image */
+  transition: 0.2s;
+}
+
+/* При наведении - увеличиваем картинку */
+.card__image:hover > img {
+  transform: scale(1.1);
+}
+
+/* Размещаем скидку на товар относительно изображения */
+.card__label {
+  padding: 4px 8px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: black ;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 16px;
+  color: pink ;
+}
+
+.card__bottom {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto; /* Занимаем всю оставшуюся высоту карточки */
+  padding: 10px;
+}
+
+
+.card__title {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 150%;
+  color: pink ;
+}
+
+.card__title:hover {
+  color: #800080 ;
+}
+
+.card__add {
+  background-color: #2D2D67 ;
+  color: #fff;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  font-weight: 400;
+  font-size: 17px;
+  padding: 10px;
+  text-align: center;
+  border: 3px solid black  ;
+  border-radius: 4px;
+  cursor: pointer; /* Меняем курсор при наведении */
+  transition: 0.2s;
+  margin-top: auto; /* Прижимаем кнопку к низу карточки */
+}
+
+.card__add:hover {
+  border: 1px solid  #9370DB;
+  background-color:#00008B ;
+  color: white;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: space-between;
+   flex-wrap: wrap;
+   margin-left: 50px ;
+   margin-right: 50px ;
+  text-align: center;
+
+}
+
+       .underline-button {
+            border: none;
+            padding: 10px 20px; /* Отступы вокруг текста */
+            font: 14px 'Montserrat', sans-serif; /* Размер шрифта и шрифт */
+            color: black  ;
+            font-weight: bold;
+            text-decoration: underline;
+            cursor: pointer;
+            background-color:white ;
+            transition: color 0.3s, background-color 0.3s;
+            border: 4px solid #6a5acd  ; /* Толщина границы и цвет границы */
+            display: inline-block; /* Размещение в строчке с блочными свойствами */
+            border-radius: 5px; /* Закругленные углы */
+        }
+
+        .underline-button:hover {
+            color: white; /* Цвет текста при наведении */
+            background-color: #6a5acd ; /* Цвет фона при наведении */
+        }
+
+</style>
+{% endblock %}
+
+{% block content %}
+<h1>things in bin</h1>
+
+{% for thing in things %}
+    <div class="card">
+        <div class="card__top">
+            <a href="#" class="card__image">
+                <img src="{{ thing.image.url }}" alt="{{ thing.title }}">
+            </a>
+            <div class="card__label">-10%</div>
+        </div>
+        <div class="card__bottom">
+            <h2>{{ thing.title }}</h2>  <!-- Замените shirt на thing здесь -->
+            <a href="/show_detail/{{ thing.id }}" class="card__add">more details</a>
+<!--            <a href="{% url 'thing_update' id=thing.id %}" class="btn btn-primary">Edit Thing</a>-->
+<!--            <a href="{% url 'thing_delete' id=thing.id %}" class="btn btn-primary">Delete Thing</a>-->
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}
+

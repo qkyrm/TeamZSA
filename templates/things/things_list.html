@@ -16,7 +16,7 @@
             <h2>{{ thing.title }}</h2>
             <p>{{ thing.description }}</p>
             <p>Cost: {{ thing.cost }}</p>
-            <a href="{% url 'things_detail' id=thing.id %}" class="card__add">Подробнее</a>
+            <a href="{% url 'things_detail' id=thing.id %}" class="card__add">more details</a>
           </div>
         </div>
       {% endfor %}

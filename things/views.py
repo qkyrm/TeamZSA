@@ -1,4 +1,5 @@
-from django.contrib.auth import logout
+from django.contrib.auth import logout, get_user_model
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseServerError
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
@@ -6,6 +7,7 @@ from django.views.generic import UpdateView, DeleteView
 from .forms import ThingForm
 from .models import Things
 from . import models
+from random import sample
 
 
 def ThingsListView(request):
@@ -59,6 +61,7 @@ def thing_update(request, id):
         if form.is_valid():
             form.save()
             return redirect('page2')
+  # Update this line
     else:
         form = ThingForm(instance=thing)
 
@@ -87,7 +90,18 @@ def create_thing(request):
     return render(request, 'things/create_thing.html', {'form': form})
 
 
+def create_thing(request):
+    if request.method == 'POST':
+        form = ThingForm(request.POST, request.FILES)
+        if form.is_valid():
+            new_thing = form.save(commit=False)
+            new_thing.user = request.user
+            new_thing.save()
+            return redirect('things_list')
+    else:
+        form = ThingForm()
 
+    return render(request, 'things/create_thing.html', {'form': form})
 def things_list_view(request):
     things = Things.objects.all()
     return render(request, 'things/things_list.html', {'things': things})
@@ -96,3 +110,44 @@ def logout_view(request):
     logout(request)
     # Дополнительные действия после выхода из аккаунта, если необходимо
     return redirect('some_view')
+def home(request):
+    # Получаем случайные объекты модели Things
+    random_things = Things.objects.order_by('?')[:4]
+
+    context = {
+        'random_things': random_things,
+    }
+    return render(request, 'things.html', context)
+# @login_required
+# def bin(request):
+#     user = request.user
+#     if user.is_authenticated:
+#         things_in_bin = Things.objects.filter(in_bin=user)
+#         return render(request, 'things/bin.html', {'things': things_in_bin})
+#
+# def add_to_bin(request, thing_id):
+#     user = request.user
+#     thing = Things.objects.get(id=thing_id)
+#     thing.in_bin.add(user)
+#     thing.save()
+#
+#     return redirect(bin)
+#
+
+def bin(request):
+    user = request.user
+    if user.is_authenticated:
+        things_in_bin = Things.objects.filter(in_bin=user)
+        return render(request, 'things/bin.html', {'things': things_in_bin})
+    else:
+        return redirect('login')  # Перенаправление на страницу входа, если пользователь не аутентифицирован
+
+def add_to_bin(request, thing_id):
+    user = request.user
+    if user.is_authenticated:
+        thing = get_object_or_404(Things, id=thing_id)
+        thing.in_bin.add(user)
+        thing.save()
+        return redirect('bin')
+    else:
+        return redirect('login')  # Перенаправление на страницу входа, если пользователь не аутентифицирован

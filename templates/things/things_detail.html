@@ -71,7 +71,8 @@
 {% endblock %}
 
 {% block content %}
-<h1>Детальная информация о товаре {{ show_id_key.title }} </h1>
+<h1>
+Product details {{ show_id_key.title }} </h1>
   <div class="product-details">
     <div class="product-image">
       {% if show_id_key.image %}
@@ -88,7 +89,7 @@
     <div class="product-act">
       <p>Act: {{show_id_key.act}} </p>
     </div>
-    <button>Добавить в коризину</button>
+    <<button><a href="{% url "add_to_bin" show_id_key.id %}">Add to Basket</a></button>
   </div>
 
 {% endblock %}

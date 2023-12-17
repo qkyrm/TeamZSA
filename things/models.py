@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
 class Things(models.Model):
@@ -12,8 +13,7 @@ class Things(models.Model):
     act = models.CharField(max_length=100, choices=CHOICE_ACT)
     cost = models.PositiveIntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
+    in_bin = models.ManyToManyField(get_user_model())
 
     def __str__(self):
         return self.title
-
-
