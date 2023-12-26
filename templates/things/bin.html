@@ -166,8 +166,8 @@
         <div class="card__bottom">
             <h2>{{ thing.title }}</h2>  <!-- Замените shirt на thing здесь -->
             <a href="/show_detail/{{ thing.id }}" class="card__add">more details</a>
-<!--            <a href="{% url 'thing_update' id=thing.id %}" class="btn btn-primary">Edit Thing</a>-->
-<!--            <a href="{% url 'thing_delete' id=thing.id %}" class="btn btn-primary">Delete Thing</a>-->
+           <a href="{% url 'thing_update' id=thing.id %}" class="btn btn-primary">Edit Thing</a>
+            <a href="{% url 'thing_delete' id=thing.id %}" class="btn btn-primary">Delete Thing</a>
         </div>
     </div>
 {% endfor %}

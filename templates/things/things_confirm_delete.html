@@ -7,7 +7,7 @@
     {% csrf_token %}
     <p>Are you sure you want to delete "{{ thing }}"?</p>
     <input type="submit" class="btn btn-danger" value="Confirm">
-    <a href="{% url 'things_list' %}" class="btn btn-secondary">Cancel</a>
+    <a href="{% url 'bin' %}" class="btn btn-secondary">Cancel</a>
   </form>
 {% endblock %}
 
